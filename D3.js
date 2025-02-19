@@ -5,7 +5,7 @@ footerSpan.innerText = year;
 const pageForm = document.getElementById("new-contact-form");
 pageForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  console.log("Raccolgo i dati e creo la card");
+  console.log("Card con dati");
 
   const nameInput = document.getElementById("name");
 
@@ -18,12 +18,8 @@ pageForm.addEventListener("submit", (e) => {
   card.classList.add("utent-card");
 
   card.innerHTML = `
-    <p>${nameValue.name} </p>
+    <p onclick="lineThrough(event)">${nameValue.name} </p>
     <button onclick="deleteCard(event)">ELIMINA</button>`;
-
-  card.addEventListener("click", (e) => {
-    console.log("COMPLETATO");
-  });
 
   const cardContainer = document.getElementById("saved-utents");
   cardContainer.appendChild(card);
@@ -36,4 +32,11 @@ const deleteCard = function (e) {
   const pressedButton = e.target;
   const cardToRemove = pressedButton.parentElement;
   cardToRemove.remove();
+};
+
+const lineThrough = function (e) {
+  console.log("Completato", e.target.parentElement);
+  const pressP = e.target;
+  const trough = pressP.parentElement;
+  trough.classList.add("testo-barrato");
 };

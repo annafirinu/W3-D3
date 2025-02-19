@@ -71,3 +71,8 @@ ul {
     background-color: black;
     color:white
   }
+
+  .testo-barrato{
+    text-decoration: line-through;
+    
+  }
